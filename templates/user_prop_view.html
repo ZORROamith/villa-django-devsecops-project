@@ -1,0 +1,97 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Properties</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .property-card-img {
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid #110707;
+        }
+        .card-body strong {
+            display: inline-block;
+            width: 100px;
+        }
+        /* Wishlist Heart */
+        .wishlist-btn {
+            font-size: 22px;
+            color: gray;
+            border: none;
+            background: none;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .wishlist-btn.active,
+        .wishlist-btn:focus,
+        .wishlist-btn:active {
+            color: red;
+        }
+        .wishlist-btn {
+        font-size: 22px;
+        color: rgba(215, 219, 214, 0.863);
+         border: none;
+        background: none;
+        cursor: pointer;
+         transition: color 0.3s ease;
+        }
+
+.wishlist-btn.active {
+  color: red;
+}
+    </style>
+</head>
+<body>
+
+    <div class="container my-5">
+        <h1 class="mb-4 text-center">PROPERTIES</h1>
+        
+        <div class="row">
+            {% for i in result %}
+          
+      
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card shadow-sm h-100">
+                    
+                    <img src="{{i.property_photo}}" 
+                         class="card-img-top property-card-img" 
+                         alt="">
+                    
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold text-primary">{{i.property_name}}</h5>
+
+                        <p class="card-text small mb-1"><strong>CATEGORY</strong>{{i.property_category}}</p>
+                        <p class="card-text small mb-1"><strong>LOCATION</strong>{{i.property_location}}</p>
+                        <p class="card-text small mb-1"><strong>BUDGET</strong>{{i.property_budget}}</p>
+                        <p class="card-text small mb-1"><strong>BEDROOM</strong>{{i.property_bedroom}}</p>
+                        <p class="card-text small mb-1"><strong>BATHROOM</strong>{{i.property_bathroom}}</p>
+                        <p class="card-text small mb-1"><strong>AREA</strong>{{i.property_area}}</p>
+                        <p class="card-text small mb-1"><strong>FLOOR</strong>{{i.property_floor}}</p>
+                        <p class="card-text small mb-1"><strong>PARKING</strong>{{i.property_parking}}</p>
+
+                    </div>
+               <div class="card-footer d-flex justify-content-between align-items-center">
+                        <div class="main-button">
+                            <a href="{% url 'visit_date' id=i.id %}" class="btn btn-sm btn-outline-primary">
+                             SCHEDULE A VISIT
+                            </a>
+                        </div> 
+                  
+                </div>
+            </div>
+          
+        </div>
+      {% endfor %}
+          </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
+{% include 'footer.html' %}

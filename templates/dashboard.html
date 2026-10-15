@@ -1,0 +1,35 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<div class="row mt-4">
+
+    <div class="col-md-3">
+        <div class="card shadow p-3 text-center">
+            <h5>TOTAL BUILDERS</h5>
+            <h2>{{total_builders}}</h2>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow p-3 text-center">
+            <h5>TOTAL PROPERTIES</h5>
+            <h2>{{total_properties}}</h2>
+        
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card shadow p-3 text-center">
+            <h5>TOTAL BOOKINGS</h5>
+            <h2>{{total_bookings}}</h2>
+        </div>
+    </div>
+
+
+
+</div>
+
+{% endblock %}

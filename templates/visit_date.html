@@ -1,0 +1,24 @@
+{% load static %}
+{% include 'header.html' %}
+
+<button type="button" onclick="history.back()" class="close-btn">&times;</button>
+
+<h2>SELECT VISIT DATE</h2>
+
+<form action="{% url 'bookvisit' result.id %}" method="post">
+    {% csrf_token %}
+
+    <label>SELECT DATE:</label>
+    <input type="date" name="visit_date">
+
+    <button type="submit">BOOK VISIT</button>
+</form>
+<br>
+<!-- <button type="button" onclick="history.back()" class="btn btn-primary">BACK</button> -->
+ <!-- <a href="{% url 'home' %}" class="btn btn-primary">back</a> -->
+
+
+
+
+
+   

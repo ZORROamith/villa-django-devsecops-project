@@ -1,0 +1,41 @@
+{% extends 'base_admin.html' %}
+
+{% block content %}
+{% load static %}
+{% include 'header.html' %}
+<center><div class="text">
+	<h1>APPROVED BUILDERS</h1>
+</div>
+</center>
+
+<div class="container mt-4">
+  <div class="row">
+  {% for i in result %}
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card shadow-sm h-100">
+      
+        <img src="../media/{{i.photo}}" class="card-img-top" alt="not found" style="height:220px; object-fit:cover;">
+        
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <p class="card-text">
+              <strong>Name:</strong>{{i.name}} <br>
+            <strong>Email:</strong>{{i.email}} <br>
+            <strong>Phone:</strong>{{i.phone}}<br>
+            <strong>Password</strong>{{i.password}}<br>
+            
+          </p>
+        </div>
+        
+      
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+    {% include 'footer.html' %}
+  
+
+{% endblock %}
