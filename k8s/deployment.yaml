@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: villa-django
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: villa-django
+  template:
+    metadata:
+      labels:
+        app: villa-django
+    spec:
+      containers:
+        - name: villa-django
+          image: 312844854441.dkr.ecr.ap-south-1.amazonaws.com/villa-django:1.2
+          ports:
+            - containerPort: 8000
+          imagePullPolicy: Always
