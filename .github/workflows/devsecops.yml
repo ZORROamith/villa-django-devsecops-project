@@ -30,7 +30,7 @@ jobs:
         run: python manage.py check
 
       - name: Python dependency vulnerability scan
-        run: pip-audit
+        run: pip-audit -r requirements.txt
 
       - name: Static application security testing
         run: semgrep scan --config p/python --error .
